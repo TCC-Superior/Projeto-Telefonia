@@ -38,5 +38,19 @@ public class Chamada {
 		this.duracao = duracao;
 	}
 	
+    public static void main(String[] args)
+    {
+ 
+        GregorianCalendar gcal = new GregorianCalendar();
+        gcal.set(GregorianCalendar.YEAR, 2019);
+ 
+        gcal.set(GregorianCalendar.MONTH, 03);
+ 
+        gcal.set(GregorianCalendar.DATE, 03);
+
+        System.out.println("Gregorian date: " + gcal.getTime());
+
+        toString(gcal);
+    }
 	
 }

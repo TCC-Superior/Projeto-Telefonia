@@ -2,11 +2,16 @@ public class Assinante {
 	private long cpf;
 	private String nome;
 	private String numero;
+	protected Chamada[] chamadas; //Não pode ser um array List mas sim um vetor primitivo
+	protected Integer numChamadas;
 	
-	public Assinante(long cpf, String nome, String numero) {
+	public abstract Assinante(long cpf, String nome, String numero, Integer numero) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.numero = numero;
+
+		this.chamadas = new Chamada[numero];
+		this.numChamadas = numero;
 	}
 
 	public long getCpf() { 

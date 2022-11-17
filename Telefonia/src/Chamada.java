@@ -2,9 +2,9 @@ import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 public class Chamada {
-	protected GregorianCalendar data;
-	protected int duracao;
-	protected String toString;
+	private GregorianCalendar data;
+	private int duracao;
+	private String toString;
 	
 	public Chamada(GregorianCalendar data, int duracao) {
 		super();
@@ -22,13 +22,6 @@ public class Chamada {
 		return duracao;
 	}
 	
-	public static String toString(GregorianCalendar data) {
-		SimpleDateFormat formatacaoData = new SimpleDateFormat("dd-MM-yyyy");
-		String dataFormatada = formatacaoData.format(data.getTime());
-		System.out.print("Data formatada: " + dataFormatada);
-		return dataFormatada;
-	}
-	
 	public void setData(GregorianCalendar data) {
 		this.data = data;
 	}
@@ -36,6 +29,13 @@ public class Chamada {
 
 	public void setDuracao(int duracao) {
 		this.duracao = duracao;
+	}
+	
+	public static String toString(GregorianCalendar data) {
+		SimpleDateFormat formatacaoData = new SimpleDateFormat("dd-MM-yyyy");
+		String dataFormatada = formatacaoData.format(data.getTime());
+		System.out.print("Data formatada: " + dataFormatada);
+		return dataFormatada;
 	}
 	
     public static void main(String[] args)

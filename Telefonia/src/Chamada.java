@@ -27,13 +27,11 @@ public class Chamada {
 		this.duracao = duracao;
 	}
     
-  public void tostring() {
-  SimpleDateFormat formatacaoData = new SimpleDateFormat("dd-MM-yyyy");
-	String dataFormatada = formatacaoData.format(data.getTime());
-		System.out.println("Data: " + dataFormatada);
+  @Override
+	public String toString() {
+		SimpleDateFormat formatacaoData = new SimpleDateFormat("dd-MM-yyyy");
+		String dataFormatada = formatacaoData.format(data);
+		System.out.println("Data: " + dataFormatada + " Duração: " + duracao + " minutos.");
+		return "A chamada registrada é da data: " + dataFormatada + " e sua duração é de: " + duracao + " minutos.";
   }
-    
-  public void duracao() {
-    System.out.println("Duração: " + duracao);
-  }	
 }

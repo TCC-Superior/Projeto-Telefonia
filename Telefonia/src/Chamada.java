@@ -1,13 +1,14 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class Chamada {
 	private Date data;
 	private int duracao;
 
-	public Chamada(Date data, int duracao) {
+	public Chamada(Date date, int duracao) {
 		super();
-		this.data = data;
+		this.data = date;
 		this.duracao = duracao;
 	}
 	
@@ -18,7 +19,7 @@ public class Chamada {
 	public int getDuracao() {
 		return duracao;
 	}
-
+	
 	public void setData(Date date) {
 		this.data = date;
 	}
@@ -27,11 +28,23 @@ public class Chamada {
 		this.duracao = duracao;
 	}
     
-  @Override
+	@Override
 	public String toString() {
 		SimpleDateFormat formatacaoData = new SimpleDateFormat("dd-MM-yyyy");
 		String dataFormatada = formatacaoData.format(data);
 		System.out.println("Data: " + dataFormatada + " Duração: " + duracao + " minutos.");
 		return "A chamada registrada é da data: " + dataFormatada + " e sua duração é de: " + duracao + " minutos.";
-  }
+	}
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+				return true;
+		if (obj == null)
+				return false;
+		if (getClass() != obj.getClass())
+				return false;
+
+		Chamada other = (Chamada) obj;
+		return Objects.equals(data, other.data) && Objects.equals(duracao, other.duracao);
+	}
 }

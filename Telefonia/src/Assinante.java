@@ -1,12 +1,21 @@
-public class Assinante {
-	private long cpf;
-	private String nome;
-	private String numero;
-	
-	public Assinante(long cpf, String nome, String numero) {
+import java.util.Arrays;
+import java.util.Scanner;
+
+public abstract class Assinante {
+	protected long cpf;
+	protected String nome;
+	protected int numero;
+	protected Chamada[] chamadas;
+	protected int numChamadas;
+
+	public Assinante(long cpf, String nome, int numero, int numChamadas) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.numero = numero;
+
+		this.chamadas = new Chamada[numChamadas];
+		this.numChamadas = numChamadas;
+		Chamada[] chamadas = new Chamada[numChamadas];
 	}
 
 	public long getCpf() { 
@@ -25,16 +34,34 @@ public class Assinante {
 		this.nome = nome; 
 	}
 	
-	public String getnumero() { 
+	public int getNumero() { 
 		return numero; 
 	}
 	
-	public void setNumero(String numero) { 
+	public void setNumero(int numero) { 
 		this.numero = numero; 
 	}
 	
-	public static String toString(long cpf, String nome, String numero) {
-		String dadosAssinante = "Os atributos do Assinante são: Assinante: " + nome + " CPF: " + cpf + " Número: " + numero;
+	public Chamada[] getChamadas() {
+		return chamadas;
+	}
+	
+	public void setChamadas(Chamada[] chamadas) {
+		this.chamadas = chamadas;
+	}
+	
+	public int getNumChamadas() {
+		return numChamadas;
+	}
+	
+	public void setNumChamadas(int numChamadas) {
+		this.numChamadas = numChamadas;
+	}
+	
+	@Override
+	
+	public String toString() {
+		String dadosAssinante = "Os atributos do Assinante são: Assinante: " + nome + " CPF: " + cpf + " Número: " + numero + "Quantidade de chamadas: " + numChamadas + Arrays.toString(chamadas);
 		System.out.print(dadosAssinante);
 		return dadosAssinante;
 
